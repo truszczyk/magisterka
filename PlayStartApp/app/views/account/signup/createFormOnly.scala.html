@@ -1,0 +1,59 @@
+@(signupForm: Form[Application.Register])
+
+@import helper._
+    @implicitFieldConstructor = @{
+        FieldConstructor(twitterBootstrapInput.render)
+    }
+
+<h3>@Messages("signup.new")</h3>
+
+@form(controllers.account.routes.Signup.save()) {
+
+    <fieldset>
+        @inputText(
+            signupForm("email"),
+            'placeholder -> Messages("email"),
+            '_label -> null,
+            'class -> "form-control"
+        )
+         @inputPassword(
+            signupForm("inputPassword"),
+            '_label -> null,
+            'placeholder -> Messages("password"),
+            'class -> "form-control"
+        )
+        @inputPassword(
+            signupForm("inputPasswordRepeat"),
+            '_label -> null,
+            'placeholder -> Messages("passwordRepeat"),
+            'class -> "form-control"
+        )
+        @inputText(
+            signupForm("fName"),
+            'placeholder -> Messages("fName"),
+            '_label -> null,
+            'class -> "form-control"
+        )
+        @inputText(
+            signupForm("lName"),
+            'placeholder -> Messages("lName"),
+            '_label -> null,
+            'class -> "form-control"
+            
+        )
+        @inputText(
+            signupForm("pesel"),
+            'placeholder -> Messages("Pesel"),
+            '_label -> null,
+            'class -> "form-control"
+            
+        )
+
+       
+    </fieldset>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="@Messages("signup.signup")">
+    </div>
+}
+
